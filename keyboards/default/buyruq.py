@@ -9,7 +9,7 @@ buyruq = ReplyKeyboardMarkup(
             KeyboardButton(text='Umumiy masalalarga oid'),
         ],
         [
-            KeyboardButton(text='🔙Orqaga'),
+            KeyboardButton(text='🔙Ortga'),
         ],
     ],
     resize_keyboard=True

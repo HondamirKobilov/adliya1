@@ -9,6 +9,7 @@ from . import buyruq
 from . import orqaga
 from . import orqaga1
 from . import orqaga2
+from . import orqaga3
 from . import Mehnat_munosabatlari
 from . import FuqorolikShartnomasi
 from . import kelishuvBitimlari
@@ -22,4 +23,3 @@ from . import tahrirlashMenu
 from . import shartnomaTahrirlash
 from . import buyruqTahrirlash
 from . import echo
-from . import orqaga3

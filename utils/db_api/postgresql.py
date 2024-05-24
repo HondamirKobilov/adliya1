@@ -51,7 +51,7 @@ class Database:
 
     async def create_table_kelishuvBitim(self):
         sql = """
-        CREATE TABLE IF NOT EXISTS kelishuvBitimlari (
+        CREATE TABLE IF NOT EXISTS kelishuvbitimlari (
         id SERIAL PRIMARY KEY,
         fayl TEXT,
         data BYTEA
@@ -61,7 +61,7 @@ class Database:
 
     async def create_table_mehnatMunosabatlari(self):
         sql = """
-           CREATE TABLE IF NOT EXISTS mehnatMunosabatlari (
+           CREATE TABLE IF NOT EXISTS mehnatmunosabatlari (
            id SERIAL PRIMARY KEY,
            fayl1 TEXT,
            data1 BYTEA
@@ -71,7 +71,7 @@ class Database:
 
     async def create_table_fuqorolikShartnomasi(self):
         sql = """
-           CREATE TABLE IF NOT EXISTS fuqorolikShartnomasi (
+           CREATE TABLE IF NOT EXISTS fuqorolikshartnomasi (
            id SERIAL PRIMARY KEY,
            fayl2 TEXT,
            data2 BYTEA
@@ -81,7 +81,7 @@ class Database:
 
     async def create_table_shaxsiyTarkib(self):
         sql = """
-           CREATE TABLE IF NOT EXISTS shaxsiyTarkib (
+           CREATE TABLE IF NOT EXISTS shaxsiytarkib (
            id SERIAL PRIMARY KEY,
            fayl3 TEXT,
            data3 BYTEA
@@ -101,7 +101,7 @@ class Database:
 
     async def create_table_umumiyMasala(self):
         sql = """
-           CREATE TABLE IF NOT EXISTS umumiyMasala(
+           CREATE TABLE IF NOT EXISTS umumiymasala(
            id SERIAL PRIMARY KEY,
            fayl5 TEXT,
            data5 BYTEA
@@ -134,19 +134,19 @@ class Database:
         return await self.execute(sql, fayl5, data5, fetchrow=True)
 
     async def get_all_kelishuvBitimlari(self):
-        sql = "SELECT id, fayl, data FROM kelishuvBitimlari"
+        sql = "SELECT id, fayl, data FROM kelishuvbitimlari"
         return await self.execute(sql, fetch=True)
 
     async def get_all_mehnatMunosabatlari(self):
-        sql = "SELECT id, fayl1, data1 FROM mehnatMunosabatlari"
+        sql = "SELECT id, fayl1, data1 FROM mehnatmunosabatlari"
         return await self.execute(sql, fetch=True)
 
     async def get_all_fuqorolikShartnomasi(self):
-        sql = "SELECT id, fayl2, data2 FROM fuqorolikShartnomasi"
+        sql = "SELECT id, fayl2, data2 FROM fuqorolikshartnomasi"
         return await self.execute(sql, fetch=True)
 
     async def get_all_shaxsiyTarkib(self):
-        sql = "SELECT id, fayl3, data3 FROM shaxsiyTarkib"
+        sql = "SELECT id, fayl3, data3 FROM shaxsiytarkib"
         return await self.execute(sql, fetch=True)
 
     async def get_all_tatil(self):
@@ -154,21 +154,21 @@ class Database:
         return await self.execute(sql, fetch=True)
 
     async def get_all_umumiyMasala(self):
-        sql = "SELECT id, fayl5, data5 FROM umumiyMasala"
+        sql = "SELECT id, fayl5, data5 FROM umumiymasala"
         return await self.execute(sql, fetch=True)
 
     # Jadvaldagi barcha yozuvlarni o'chirish
     async def delete_all_kelishuvBitimlari(self, table_name: str):
         table_name = await self.table_exists(table_name)
         if table_name:
-            sql = "DELETE FROM kelishuvBitimlari"
+            sql = "DELETE FROM kelishuvbitimlari"
             return await self.execute(sql, execute=True)
         else:
             return f"Bunday bazza mavud emas yoki bazaga ma'lumot joylanmagan. Bazaga malumot joylang"
     async def delete_all_mehnatMunosabatlari(self, table_name: str):
         table_name = await self.table_exists(table_name)
         if table_name:
-            sql = "DELETE FROM mehnatMunosabatlari"
+            sql = "DELETE FROM mehnatmunosabatlari"
             print("uchdi mehnat munosabatlari")
             return await self.execute(sql, execute=True)
         else:
@@ -176,14 +176,14 @@ class Database:
     async def delete_all_fuqorolikShartnomasi(self, table_name: str):
         table_name = await self.table_exists(table_name)
         if table_name:
-            sql = "DELETE FROM fuqorolikShartnomasi"
+            sql = "DELETE FROM fuqorolikshartnomasi"
             return await self.execute(sql, execute=True)
         else:
             return f"Bunday bazza mavud emas yoki bazaga ma'lumot joylanmagan. Bazaga malumot joylang"
     async def delete_all_shaxsiyTarkib(self, table_name: str):
         table_name = await self.table_exists(table_name)
         if table_name:
-            sql = "DELETE FROM shaxsiyTarkib"
+            sql = "DELETE FROM shaxsiytarkib"
             return await self.execute(sql, execute=True)
         else:
             return f"Bunday bazza mavud emas yoki bazaga ma'lumot joylanmagan. Bazaga malumot joylang"
@@ -191,14 +191,13 @@ class Database:
         table_name = await self.table_exists(table_name)
         if table_name:
             sql = "DELETE FROM tatil"
-            print("qale")
             return await self.execute(sql, execute=True)
         else:
             return f"Bunday bazza mavud emas yoki bazaga ma'lumot joylanmagan. Bazaga malumot joylang"
     async def delete_all_umumiyMasala(self, table_name: str):
         table_name = await self.table_exists(table_name)
         if table_name:
-            sql = "DELETE FROM umumiyMasala"
+            sql = "DELETE FROM umumiymasala"
             return await self.execute(sql, execute=True)
         else:
             return f"Bunday bazza mavud emas yoki bazaga ma'lumot joylanmagan. Bazaga malumot joylang"
